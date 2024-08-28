@@ -1,46 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Your Cereal</title>
+    <title>Cereal Bowl Thursday</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f7f7;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
             text-align: center;
-            margin-top: 100px;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
         }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
+
         h1 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
+            font-size: 3.5em;
+            color: #ff6347;
+            margin-bottom: 0.5em;
+            animation: bounceIn 1.5s ease;
         }
+
         p {
-            font-size: 1.2em;
-            margin-bottom: 30px;
+            font-size: 1.5em;
+            margin-bottom: 1.5em;
+            color: #555;
         }
-        a.button {
+
+        .cereal-list,
+        .milk-list {
+            font-size: 1.3em;
+            margin: 1.5em 0;
+            padding: 0;
+            list-style: none;
+            color: #333;
+        }
+
+        .cereal-list li::before,
+        .milk-list li::before {
+            content: "🥣";
+            margin-right: 10px;
+        }
+
+        .button {
             display: inline-block;
-            padding: 15px 30px;
-            font-size: 1.2em;
-            color: white;
-            background-color: #4CAF50;
+            padding: 15px 40px;
+            font-size: 1.3em;
+            color: #fff;
+            background-color: #ff6347;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 30px;
+            margin-top: 1.5em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
         }
-        a.button:hover {
-            background-color: #45a049;
+
+        .button:hover {
+            background-color: #e55337;
+            transform: translateY(-5px);
+        }
+
+        .confetti {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ff6347;
+            opacity: 0.7;
+            animation: fall 5s linear infinite;
+            border-radius: 50%;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.3);
+                opacity: 0;
+            }
+
+            50% {
+                transform: scale(1.05);
+                opacity: 1;
+            }
+
+            70% {
+                transform: scale(0.9);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
         }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>Order Your Cereal</h1>
-        <p>Click the button below to place your order for a delicious bowl of cereal!</p>
-        <a href="https://forms.gle/SEiwRk7dY3ZiPikU7" target="_blank" class="button">Click to Order</a>
+    <div class="confetti">
+        <div class="confetti-piece" style="left:10%; animation-duration: 5s; background-color: #ffd700;"></div>
+        <div class="confetti-piece" style="left:20%; animation-duration: 7s; background-color: #00bfff;"></div>
+        <div class="confetti-piece" style="left:30%; animation-duration: 4s; background-color: #ff69b4;"></div>
+        <div class="confetti-piece" style="left:40%; animation-duration: 6s; background-color: #ff6347;"></div>
+        <div class="confetti-piece" style="left:50%; animation-duration: 5.5s; background-color: #adff2f;"></div>
+        <div class="confetti-piece" style="left:60%; animation-duration: 7.5s; background-color: #ffa500;"></div>
+        <div class="confetti-piece" style="left:70%; animation-duration: 4.5s; background-color: #ee82ee;"></div>
+        <div class="confetti-piece" style="left:80%; animation-duration: 6.5s; background-color: #ff4500;"></div>
+        <div class="confetti-piece" style="left:90%; animation-duration: 5.2s; background-color: #1e90ff;"></div>
     </div>
+
+    <h1>🍯 Cereal Bowl Thursday 🍯</h1>
+    <p>Welcome to UC Davis's annual tradition of Cereal Bowl Thursday on the second Thursday of the school year!!</p>
+
+    <p>This year's options include... 🥁🥁🥁🥁</p>
+
+    <ul class="cereal-list">
+        <li>Cinnamon Toast Crunch</li>
+        <li>Frosted Flakes</li>
+        <li>Lucky Charms</li>
+        <li>Cocoa Puffs</li>
+    </ul>
+
+    <p>Milk Options:</p>
+    <ul class="milk-list">
+        <li>2%</li>
+        <li>Soy</li>
+        <li>Oat</li>
+        <li>Almond</li>
+    </ul>
+
+    <a href="https://forms.gle/SEiwRk7dY3ZiPikU7"  target="_blank" class="button">Click to Order</a>
+
 </body>
+
 </html>
